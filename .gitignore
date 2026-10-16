@@ -1,0 +1,11 @@
+# Dados brutos da ANP (grandes demais; baixar pelo link no README)
+dados/brutos/*
+!dados/brutos/.gitkeep
+
+# Arquivos compactados
+*.zip
+
+# Arquivos temporários do Windows e do Power BI
+Thumbs.db
+desktop.ini
+~$*

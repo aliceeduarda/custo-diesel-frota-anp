@@ -23,6 +23,44 @@ período o diesel é mais barato no Brasil?**
 3. Existe diferença relevante entre postos de bandeira (marca) e bandeira branca?
 4. No estado do Rio de Janeiro, quais municípios têm o menor preço médio?
 
+## 💡 Principais descobertas (diesel S10, jul/2025 a jun/2026)
+
+> Comparações regionais feitas em relação à média **do mesmo mês**, para
+> não distorcer os resultados com a forte alta de março/2026.
+
+1. **Estados:** Pernambuco tem o diesel mais barato do país, **4,1% abaixo da
+   média nacional**. O Acre é o mais caro, **22,0% acima** — cerca de 27% mais
+   caro que Pernambuco. A região Norte concentra os preços mais altos
+   (Acre, Roraima +9,7% e Amazonas +9,2%). O RJ fica na média (+0,4%).
+
+2. **Evolução mensal:** o preço ficou estável entre jul/2025 e fev/2026
+   (R$ 6,10 a R$ 6,16), saltou **15,1% em março/2026** e atingiu o pico em
+   abril (R$ 7,47). No período completo, a alta foi de **16,7%**. O salto
+   coincide com o reajuste da Petrobras de 14/03/2026, anunciado em meio
+   à alta internacional do petróleo
+   ([fonte](https://eixos.com.br/combustiveis-e-bioenergia/petrobras-anuncia-aumento-de-r-038-sobre-o-diesel-a-nas-refinarias-a-partir-de-sabado/)).
+
+3. **Bandeiras:** postos de marca são mais caros em todos os recortes, mas a
+   diferença é pequena: **+1,66% no Brasil** (R$ 0,11/L) e **+0,49% no RJ**.
+   Em escala, porém, ela pesa: uma frota hipotética de 20.000 L/mês pagaria
+   cerca de **R$ 2.140 a mais por mês** abastecendo só em postos de marca.
+
+4. **Municípios do RJ:** **Belford Roxo (−3,5%)** e **Niterói (−3,4%)**
+   estão tecnicamente empatados como os mais baratos do estado, seguidos de
+   Três Rios (−3,1%). A capital aparece em 10º (−1,2%).
+
+## 🧪 Decisões de análise e limitações
+
+| Decisão | Justificativa |
+|---|---|
+| S10 e S500 analisados separadamente | São produtos com preços diferentes; misturá-los distorceria as médias |
+| Foco no S10 | É o diesel da frota moderna de caminhões |
+| Coluna "Valor de Compra" descartada | 0 de 231.537 registros de diesel estavam preenchidos |
+| Comparações regionais pela média do mesmo mês | Evita que diferenças no período das coletas distorçam os rankings |
+| Mínimo de 30 coletas por município | Evita conclusões baseadas em poucas observações |
+| Preços de R$ 9,99 em Ourinhos (SP) mantidos | Investigados: 2 postos com preço alto e estável o ano todo (padrão real, não erro). São 15 registros, sem impacto nas médias |
+| Carga validada | Os 806.626 registros dos CSVs foram conferidos com contagem no banco |
+
 ## 🗂️ Fonte dos dados
 
 - **Série Histórica de Preços de Combustíveis — ANP**

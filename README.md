@@ -66,7 +66,13 @@ período o diesel é mais barato no Brasil?**
 1. Baixe os arquivos do **2º semestre de 2025** e do **1º semestre de 2026**
    (Combustíveis automotivos) na página oficial da ANP, acima.
 2. Extraia os CSVs em `dados/brutos/` e renomeie para `ca-2025-02.csv` e `ca-2026-01.csv`.
-3. *(próximas etapas serão adicionadas conforme o projeto avança)*
+3. Inicie o MySQL e execute, nesta ordem:
+   - `sql/01_setup.sql` como **root** (troque `SUA_SENHA_AQUI` pela senha desejada)
+   - Conecte com `mysql --local-infile=1 -u analista_diesel -p diesel_anp`
+   - `sql/02_staging_carga.sql` (carga e validação dos CSVs)
+   - `sql/03_limpeza.sql` (tabela final do diesel)
+   - `sql/04_consultas.sql` (respostas às perguntas de negócio)
+4. *(etapa do Power BI será adicionada em seguida)*
 
 ## 👩‍💻 Autora
 

@@ -111,3 +111,65 @@ HAVING COUNT(*) >= 30
 ORDER BY preco_medio
 LIMIT 10;
 
+-- =============================================================
+-- 5) TESTES DE ROBUSTEZ
+-- =============================================================
+
+-- 5.1) Anomalia de Ourinhos: os R$ 9,99 são um padrão desses postos?
+--      Mostra o preço mínimo e máximo de cada posto, mês a mês.
+SELECT revenda,
+       DATE_FORMAT(data_coleta, '%Y-%m') AS mes,
+       MIN(valor_venda) AS menor_preco,
+       MAX(valor_venda) AS maior_preco,
+       COUNT(*)         AS coletas
+FROM precos_diesel
+WHERE estado_sigla = 'SP' AND municipio = 'OURINHOS' AND tipo_diesel = 'S10'
+GROUP BY revenda, mes
+ORDER BY revenda, mes;
+
+-- 5.2) Quantas coletas no Brasil têm o preço de R$ 9,99?
+SELECT COUNT(*) AS coletas_9_99
+FROM precos_diesel
+WHERE valor_venda = 9.990;
+
+-- 5.3) Pergunta 1 sem o efeito do tempo:
+--      cada preço é comparado com a média nacional DO MESMO MÊS.
+WITH media_mes_br AS (
+  SELECT DATE_FORMAT(data_coleta, '%Y-%m') AS mes,
+         AVG(valor_venda) AS media_mes
+  FROM precos_diesel
+  WHERE tipo_diesel = 'S10'
+  GROUP BY mes
+)
+SELECT p.estado_sigla,
+       ROUND((AVG(p.valor_venda / m.media_mes) - 1) * 100, 1)
+         AS dif_media_nacional_mesmo_mes_pct,
+       COUNT(*) AS coletas
+FROM precos_diesel p
+JOIN media_mes_br m
+  ON DATE_FORMAT(p.data_coleta, '%Y-%m') = m.mes
+WHERE p.tipo_diesel = 'S10'
+GROUP BY p.estado_sigla
+ORDER BY dif_media_nacional_mesmo_mes_pct;
+
+-- 5.4) Pergunta 4 sem o efeito do tempo:
+--      cada preço é comparado com a média do RJ DO MESMO MÊS.
+WITH media_mes_rj AS (
+  SELECT DATE_FORMAT(data_coleta, '%Y-%m') AS mes,
+         AVG(valor_venda) AS media_mes
+  FROM precos_diesel
+  WHERE tipo_diesel = 'S10' AND estado_sigla = 'RJ'
+  GROUP BY mes
+)
+SELECT p.municipio,
+       ROUND((AVG(p.valor_venda / m.media_mes) - 1) * 100, 2)
+         AS dif_media_rj_mesmo_mes_pct,
+       COUNT(*) AS coletas
+FROM precos_diesel p
+JOIN media_mes_rj m
+  ON DATE_FORMAT(p.data_coleta, '%Y-%m') = m.mes
+WHERE p.tipo_diesel = 'S10' AND p.estado_sigla = 'RJ'
+GROUP BY p.municipio
+HAVING COUNT(*) >= 30
+ORDER BY dif_media_rj_mesmo_mes_pct
+LIMIT 10;

@@ -1,0 +1,20 @@
+{
+  "name": "Diesel Frota",
+  "dataColors": [
+    "#1F3A5F",
+    "#F2A900",
+    "#5B7DA8",
+    "#9AA5B1",
+    "#C0392B",
+    "#2E8B57"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#1F2937",
+  "tableAccent": "#1F3A5F",
+  "textClasses": {
+    "callout": { "fontFace": "Segoe UI Semibold", "fontSize": 26, "color": "#1F3A5F" },
+    "title":   { "fontFace": "Segoe UI Semibold", "fontSize": 12, "color": "#1F2937" },
+    "header":  { "fontFace": "Segoe UI Semibold", "fontSize": 11, "color": "#1F2937" },
+    "label":   { "fontFace": "Segoe UI", "fontSize": 10, "color": "#4B5563" }
+  }
+}

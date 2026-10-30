@@ -1,6 +1,6 @@
 # ⛽ Custo de Combustível de Frota — Onde e quando abastecer diesel mais barato?
 
-> 🚧 **Status:** em desenvolvimento (previsão de conclusão: 28/10/2026)
+> 🚧 **Status:** em desenvolvimento (previsão de conclusão: 05/11/2026)
 
 ## 📌 Problema de negócio
 
